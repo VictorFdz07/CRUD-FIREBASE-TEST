@@ -63,7 +63,11 @@ taskForm.addEventListener('submit', (e) =>{
     const description = taskForm['task-description'];
 
     if (!editStatus){
-        saveTask(title.value, description.value);
+        if(title.value == "" || description.value == ""){
+            alert("LLene todos los campos");
+        }else{
+            saveTask(title.value, description.value);
+        }
     }else{
         updateTask(id, {
             title: title.value,
